@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Главная страница</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="title">
+            <h1>PC Center</h1>
+        </div>
+
+        <div class="search">
+            <input type="text" id="searchInput" placeholder="Поиск">
+        </div>
+
+        <div class="line"></div>
+
+        <div class="kitchen" id="restaurants">
+            <h2>Stark Gaming</h2>
+            <img src="img/stark.jpg" alt="Первый компьютерный клуб">
+            <a href="1st_club.html">Просмотреть</a>
+        </div>
+
+        <div class="kitchen" id="restaurants">
+            <h2>Cyber Arena</h2>
+            <img src="img/cyber.png" alt="Второй компьютерный клуб">
+            <a href="1st_club.html">Просмотреть</a>
+        </div>
+
+        <div class="kitchen" id="restaurants">
+            <h2>Colizeum</h2>
+            <img src="img/colizeum.jpg" alt="Третий компьютерный клуб">
+            <a href="1st_club.html">Просмотреть</a>
+        </div>
+    </div>
+
+    <script>
+        function filterRestaurants() {
+            var query = document.getElementById('searchInput').value.toLowerCase();
+            var restaurants = document.getElementsByClassName('kitchen');
+
+            for (var i = 0; i < restaurants.length; i++) {
+                var restaurantName = restaurants[i].getElementsByTagName('h2')[0].innerText.toLowerCase();
+                if (restaurantName.indexOf(query) > -1) {
+                    restaurants[i].style.display = '';
+                } else {
+                    restaurants[i].style.display = 'none';
+                }
+            }
+        }
+
+        document.getElementById('searchInput').addEventListener('input', filterRestaurants);
+    </script>
+
+</body>
+</html>
